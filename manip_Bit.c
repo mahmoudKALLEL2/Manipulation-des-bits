@@ -1,6 +1,6 @@
 /*
  ============================================================================
- Name        : Essaie.c
+ Name        : manip_Bit.c
  Author      : mahmoud kallel
  Version     :
  Copyright   : Your copyright notice
@@ -20,7 +20,7 @@ static void modifie_jour(unsigned char *date, unsigned jour)
 
 static void modifie_mois(unsigned char *date, unsigned mois)
 {
-    /* Nous ajoutons les trois premiers bits du mois après ceux du jour. */
+    /* Nous ajoutons les trois premiers bits du mois aprÃ¨s ceux du jour. */
     date[0] |= (mois & 0x07) << 5;
     /* Puis le bit restant dans le second octet. */
     date[1] |= (mois >> 3);
@@ -29,7 +29,7 @@ static void modifie_mois(unsigned char *date, unsigned mois)
 
 static void modifie_annee(unsigned char *date, unsigned annee)
 {
-    /* Nous ajoutons sept bits de l'année après le dernier bit du mois. */
+    /* Nous ajoutons sept bits de l'annÃ©e aprÃ¨s le dernier bit du mois. */
     date[1] |= (annee & 0x7F) << 1;
     /* Et ensuite les cinq restants. */
     date[2] |= (annee) >> 7;
@@ -57,7 +57,7 @@ static unsigned calcule_annee(unsigned char *date)
 int
 main(void)
 {
-    unsigned char date[3] = { 0 }; /* Initialisation à zéro. */
+    unsigned char date[3] = { 0 }; /* Initialisation Ã  zÃ©ro. */
     unsigned jour, mois, annee;
 
     printf("Entrez une date au format jj/mm/aaaa : ");
